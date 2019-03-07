@@ -1,9 +1,5 @@
 require 'json'
 
-# def baseUrl()
-#   return ENV['BASE_URL']
-# end
-
 def baseUrl()
   return ENV['base_url']
 end
@@ -36,5 +32,3 @@ def assert_all_match(resultDate1, resultDate2)
     end
   end
 end
-  #raise "not match!!"
-#end

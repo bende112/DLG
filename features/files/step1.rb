@@ -4,8 +4,6 @@ Given(/^I visit "([^"]*)"$/) do |path|
 end
 
 And(/^the "([^"]*)" page is displayed$/) do |titleName|
-  # page.has_content?(titleName)
-  # sleep 1
   expect(find('#dlg-dealersearch-title').text).to match titleName.to_s
   sleep 1
 end
@@ -36,6 +34,10 @@ And(/^the cover start date "([^"]*)" with cover end date "([^"]*)" is displayed$
   assert_all_match(resultDate1, resultDate2)
 end
 
+
+Then(/^the the car does not exist with a message "([^"]*)" is displayed$/) do |error_Message|
+  expect(find('.result').text).to match error_Message.to_s
+end
 
 Then(/^the a message "([^"]*)" is displayed$/) do |errorMessage|
   expect(find('.error-required').text).to match errorMessage.to_s

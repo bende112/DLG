@@ -14,12 +14,11 @@ Feature: checks to see if a vehicle exists
     And the "Drive Away Insurance" page is displayed
     And i enter a registration number "OY12VXX"
     When i click on the "Find vehicle" button
-    Then the a message "Sorry record not found" is displayed
+    Then the the car does not exist with a message "Sorry record not found" is displayed
 
   Scenario: error validation
     Given I visit ""
     And the "Drive Away Insurance" page is displayed
-    #And i enter a registration number "OY12VXX"
     When i click on the "Find vehicle" button
     Then the a message "Please enter a valid car registration" is displayed
 
