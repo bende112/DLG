@@ -21,3 +21,20 @@ def actionDropdownSelector(column, value)
 
   return '.content table tbody tr:nth-of-type(' + (rowIndex + 1).to_s + ') '
 end
+
+def assert_all_match(resultDate1, resultDate2)
+  within("#pagecontent") do
+    all('.resultDate').first
+    all('.resultDate-bold').last
+
+    list_1_string = resultDate1.to_s
+    list_2_string = resultDate2.to_s
+
+    if list_1_string == list_2_string
+      print 'assert_all_match: both lists match'
+      return
+    end
+  end
+end
+  #raise "not match!!"
+#end

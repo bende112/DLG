@@ -27,10 +27,16 @@ end
 
 Then(/^the result for the registration number "([^"]*)" is displayed$/) do |regNumber|
    expect(find('.result').text).to match regNumber.to_s
-  # sleep 1
-  #find('div.result')
+   sleep 1
 end
 
 And(/^the cover start date "([^"]*)" with cover end date "([^"]*)" is displayed$/) do |startDate, endDate|
-  pending
+  resultDate1 = startDate
+  resultDate2 = endDate
+  assert_all_match(resultDate1, resultDate2)
+end
+
+
+Then(/^the a message "([^"]*)" is displayed$/) do |errorMessage|
+  expect(find('.error-required').text).to match errorMessage.to_s
 end
