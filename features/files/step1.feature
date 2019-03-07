@@ -19,7 +19,6 @@ Feature: checks to see if a vehicle exists
   Scenario: error validation
     Given I visit ""
     And the "Drive Away Insurance" page is displayed
-    #And i enter a registration number "OY12VXX"
     When i click on the "Find vehicle" button
     Then the a message "Please enter a valid car registration" is displayed
 

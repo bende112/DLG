@@ -13,32 +13,13 @@ require 'net/http/post/multipart'
 #require 'capybara-screenshot'
 #require 'capybara-screenshot/cucumber'
 
-
-# RSpec.configure do |config|
-#   # show retry status in spec process
-#   config.verbose_retry = true
-#   # Try twice (retry once)
-#   config.default_retry_count = 2
-#   # Only retry when Selenium raises Net::ReadTimeout
-#   config.exceptions_to_retry = [Net::ReadTimeout]
-# end
-
 Capybara.register_driver :selenium_chrome do |app|
   options = Selenium::WebDriver::Chrome::Options.new
-  # options.add_argument("--window-size=1024,768")
   options.add_argument("--start-fullscreen");
   options.add_argument('--incognito')
   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
-
-# Capybara.register_driver :selenium_chrome do |app|
-# #   # Capybara::Selenium::Driver.new(app, browser: :chrome, switches: ['--incognito'])
-# #   # Capybara::Selenium::Driver.new(app, :browser => :chrome)
-# #   # or
-# #   # Capybara::Selenium::Driver.new(app, browser: :chrome, args: ['--incognito'])
-#    Capybara::Selenium::Driver.new(app, browser: :chrome, switches: ['--incognito'])
-# end
 
 Capybara.configure do |config|
   config.default_driver = :selenium_chrome
@@ -49,19 +30,6 @@ end
 Capybara.ignore_hidden_elements = false
 Capybara.ignore_hidden_elements = true
 Capybara.default_max_wait_time = 5
-
-#profile = Selenium::WebDriver::Firefox::Profile.new
-#profile.assume_untrusted_certificate_issuer = true
-#Capybara.register_driver :firefox do |app|
-#  options = {
-#   :js_errors => true,
-#    :timeout => 360,
-#    :debug => false,
-#      :inspector => false,
-#  }
-# Capybara::Selenium::Driver.new(app, :browser => :firefox, :profile => profile)
-#end
-#
 
 ## Change this to change browser
 # Capybara.default_driver = :selenium_chrome

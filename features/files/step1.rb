@@ -4,8 +4,6 @@ Given(/^I visit "([^"]*)"$/) do |path|
 end
 
 And(/^the "([^"]*)" page is displayed$/) do |titleName|
-  # page.has_content?(titleName)
-  # sleep 1
   expect(find('#dlg-dealersearch-title').text).to match titleName.to_s
   sleep 1
 end
