@@ -37,6 +37,10 @@ And(/^the cover start date "([^"]*)" with cover end date "([^"]*)" is displayed$
 end
 
 
+Then(/^the the car does not exist with a message "([^"]*)" is displayed$/) do |error_Message|
+  expect(find('.result').text).to match error_Message.to_s
+end
+
 Then(/^the a message "([^"]*)" is displayed$/) do |errorMessage|
   expect(find('.error-required').text).to match errorMessage.to_s
 end
